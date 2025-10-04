@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&family=Oswald:wght@700&display=swap');
+
+:root {
+    --color-primario: #00A8FF;
+    --color-fondo: #121212;
+    --color-superficie: #1E1E1E;
+    --color-fuente-principal: #EAEAEA;
+    --color-fuente-secundario: #A0A0A0;
+    --fuente-titulos: 'Oswald', sans-serif;
+    --fuente-cuerpo: 'Lexend', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--fuente-cuerpo);
+    background-color: var(--color-fondo);
+    color: var(--color-fuente-principal);
+}
+
+h1, h2, h3 {
+    font-family: var(--fuente-titulos);
+    text-transform: uppercase;
+}
