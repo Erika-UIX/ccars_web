@@ -13,7 +13,7 @@ export default function AdminInventoryPanel() {
   const token = localStorage.getItem('token');
 
   const fetchVehicles = () => {
-    fetch('http://localhost:3001/api/vehicles')
+    fetch(${process.env.REACT_APP_INVENTORY_API_URL}/api/vehicles)
       .then(res => res.json())
       .then(data => setVehicles(data))
       .catch(error => console.error("Error al obtener vehículos:", error));
@@ -30,7 +30,7 @@ export default function AdminInventoryPanel() {
 
   const handleCreateSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3001/api/vehicles', {
+    fetch(${process.env.REACT_APP_INVENTORY_API_URL}/api/vehicles, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
       body: JSON.stringify(newVehicle),
@@ -52,7 +52,7 @@ export default function AdminInventoryPanel() {
   
   const handleEditSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:3001/api/vehicles/${editingVehicle.id}`, {
+    fetch(${process.env.REACT_APP_INVENTORY_API_URL}/api/vehicles/${editingVehicle.id}, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
       body: JSON.stringify(editingVehicle),
@@ -69,7 +69,7 @@ export default function AdminInventoryPanel() {
   // borrar
   const handleDelete = (id) => {
     if (!window.confirm('¿Seguro que quieres eliminar este vehículo?')) return;
-    fetch(`http://localhost:3001/api/vehicles/${id}`, {
+    fetch(${process.env.REACT_APP_INVENTORY_API_URL}/api/vehicles/${id}, {
       method: 'DELETE',
       headers: { 'Authorization': `Bearer ${token}` }
     })

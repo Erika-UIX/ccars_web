@@ -5,7 +5,7 @@ export default function Inventory() {
   const [vehicles, setVehicles] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/vehicles')
+    fetch(${process.env.REACT_APP_INVENTORY_API_URL}/api/vehicles)
       .then(response => response.json())
       .then(data => setVehicles(data))
       .catch(error => console.error('Error al obtener los vehículos:', error));

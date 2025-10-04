@@ -12,7 +12,7 @@ export default function Maintenance() {
 
     const appointmentData = { name, email, vehicle, date };
 
-    fetch('http://localhost:3002/api/appointments', {
+    fetch(${process.env.REACT_APP_MAINTENANCE_API_URL}/api/appointments, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -6,7 +6,7 @@ export default function VehicleDetails() {
   const [vehicle, setVehicle] = useState(null); 
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/vehicles/${id}`)
+    fetch(${process.env.REACT_APP_INVENTORY_API_URL}/api/vehicles/${id})
       .then(res => res.json())
       .then(data => setVehicle(data))
       .catch(error => console.error("Error al obtener detalle del vehículo:", error));
