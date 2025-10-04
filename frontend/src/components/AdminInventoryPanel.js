@@ -52,7 +52,7 @@ export default function AdminInventoryPanel() {
   
   const handleEditSubmit = (e) => {
     e.preventDefault();
-    fetch(${process.env.REACT_APP_INVENTORY_API_URL}/api/vehicles/${editingVehicle.id}, {
+    fetch(`${process.env.REACT_APP_INVENTORY_API_URL}/api/vehicles/${editingVehicle.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
       body: JSON.stringify(editingVehicle),
@@ -69,7 +69,7 @@ export default function AdminInventoryPanel() {
   // borrar
   const handleDelete = (id) => {
     if (!window.confirm('¿Seguro que quieres eliminar este vehículo?')) return;
-    fetch(${process.env.REACT_APP_INVENTORY_API_URL}/api/vehicles/${id}, {
+    fetch(`${process.env.REACT_APP_INVENTORY_API_URL}/api/vehicles/${id}`, {
       method: 'DELETE',
       headers: { 'Authorization': `Bearer ${token}` }
     })
