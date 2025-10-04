@@ -13,7 +13,7 @@ export default function AdminInventoryPanel() {
   const token = localStorage.getItem('token');
 
   const fetchVehicles = () => {
-    fetch(${process.env.REACT_APP_INVENTORY_API_URL}/api/vehicles)
+    fetch(`${process.env.REACT_APP_INVENTORY_API_URL}/api/vehicles`)
       .then(res => res.json())
       .then(data => setVehicles(data))
       .catch(error => console.error("Error al obtener vehículos:", error));
@@ -30,7 +30,7 @@ export default function AdminInventoryPanel() {
 
   const handleCreateSubmit = (e) => {
     e.preventDefault();
-    fetch(${process.env.REACT_APP_INVENTORY_API_URL}/api/vehicles, {
+    fetch(`${process.env.REACT_APP_INVENTORY_API_URL}/api/vehicles`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
       body: JSON.stringify(newVehicle),

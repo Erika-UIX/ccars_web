@@ -6,7 +6,7 @@ export default function AdminPanel() {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    fetch(${process.env.REACT_APP_MAINTENANCE_API_URL}/api/appointments)
+    fetch(`${process.env.REACT_APP_MAINTENANCE_API_URL}/api/appointments`)
       .then(res => res.json())
       .then(data => setAppointments(data))
       .catch(error => console.error("Error al obtener las citas:", error));
@@ -16,7 +16,7 @@ export default function AdminPanel() {
   const handleDelete = (id) => {
     // confirmacion
     if (window.confirm('¿Estás seguro de que quieres borrar esta cita?')) {
-      fetch(${process.env.REACT_APP_MAINTENANCE_API_URL}/api/appointments/${id}, {
+      fetch(`${process.env.REACT_APP_MAINTENANCE_API_URL}/api/appointments/${id}`, {
         method: 'DELETE',
       })
       .then(res => res.json())
@@ -48,7 +48,7 @@ export default function AdminPanel() {
                 Borrar
               </button>
             </div>
-          ))}
+          ))} 
         </div>
       )}
 
